@@ -1,0 +1,259 @@
+        /*SCSS FOUND: http://codepen.io/ettrics/pen/zGrxPp/*/
+* {
+  box-sizing: border-box;
+  margin:0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  line-height: 1.5;
+  font-family: 'Montserrat';
+  background: #f2f2f2;
+  color: #404040;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.view {
+  height: 100%;
+  width: 100%;
+  /*min-width: 384px;*/
+  /*max-width: 50%;*/
+  background: #404040;
+  overflow-y: scroll;
+}
+
+.card-full {
+  will-change: transform;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  visibility: visible;
+  transform-origin: top center;
+          transform: scaleY(1) translate(-50%, -50%);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow-y: scroll;
+}
+
+.full-movie-title {
+  font-size:20px;
+}
+.card-full-bottom {
+  background: #404040;
+  min-height:50%;
+  color:#eee;
+  display: flex;
+  flex-flow: row wrap;
+  align-items:center;
+  justify-content: space-around;
+}
+.card-full-top {
+position: relative;
+     display: flex; 
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    background: #454545;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #eee;
+    text-shadow: 1px 1px 2px #000;
+    padding: 25px;
+    font-size: 16px;
+}
+
+
+.card-full-num, .card-full-handle, .card-full-info {
+  opacity: 1;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-duration: 2s;
+  transition-delay: .35s;
+}
+
+.card-full-info {
+  margin: 0;
+  font-size: 12px;
+  background-color: #404040;
+  color: #fff;
+
+  padding: 1rem 2rem 1rem 2rem;
+}
+.full-cast {
+  font-size: 12px;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-around;
+}
+.actor-card {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  background-color: #eee;
+  padding: 5px;
+  margin: 5px;
+  color: #404040;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px #000;
+}
+.actor-profile-pic {
+  width:100%;
+  height:115px;
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-size: cover;
+}
+.actual-pic {
+  width: 210px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+}
+.actual-pic .actor-name {
+  font-size:13px;
+}
+.actor-name {
+  font-size: 11px;
+  font-weight: bold;
+}
+.actor-character {
+  font-size: 10px;
+}
+.top-info{
+  z-index: 2;
+}
+.full-poster {
+    float: right;
+    width: 155px;
+    flex-shrink: 0;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-right: 5px;
+    z-index: 2;
+}
+
+.movie-poster{
+
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-size: cover;
+  min-height: 100%;
+  width: 75px;
+  /*margin: -50px 10px -50px -20px;*/
+  float:left;
+  margin: 0;
+}
+
+/* btn */
+.closeBurger {
+  position: fixed;
+  display:  inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+  top:0;
+  right:0;
+  z-index: 2;
+}
+
+.closeBurger span {
+  margin: 0 auto;
+  position: relative;
+  top: 12px;
+}
+.closeBurger span:before, .closeBurger span:after {
+  position: absolute;
+  content: '';
+}
+.closeBurger span, .closeBurger span:before, .closeBurger span:after {
+  width: 30px;
+  height: 6px;
+  background-color: #eee;
+  display: block;
+}
+.closeBurger span:before {
+  margin-top: -12px;
+}
+.closeBurger span:after {
+  margin-top: 12px;
+}
+
+
+/* close Hamburger Menu */
+.closeBurger span {
+  -webkit-transition-duration: 0s; transition-duration: 0s;
+  -webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+  box-shadow: 2px 2px 5px #000;
+
+}
+.closeBurger:hover span {
+  background-color: rgba(0,0,0,0.0);
+  -webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+  box-shadow: 0px 0px 0px #000;
+
+}
+.closeBurger span:before {
+  -webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+  -webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+  -webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+   box-shadow: 2px 2px 5px #000;
+
+}
+.closeBurger:hover span:before {
+  margin-top: 0;
+  -webkit-transform: rotate(45deg); transform: rotate(45deg);
+  -webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+   box-shadow: 2px 2px 5px #000;
+
+}
+.closeBurger span:after {
+  -webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+  -webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+  -webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s; box-shadow: 2px 2px 5px #000;
+
+}
+.closeBurger:hover span:after {
+  margin-top: 0;
+  -webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+  -webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s; box-shadow: 2px 2px 5px #000;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

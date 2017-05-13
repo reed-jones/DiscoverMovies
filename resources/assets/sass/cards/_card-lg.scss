@@ -1,0 +1,81 @@
+//card {
+//
+&-lg {
+	margin: 0 0 0.75rem 0;
+	height:115px;
+	width:100%;
+	border-top: 4px solid $card-highlight-colour;
+	box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.62);
+	background-color: $card-colour;
+	// cursor: pointer;
+	transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+	overflow: hidden;
+	// display:inline-block;
+	// width: 100%;
+
+
+	&-poster{
+		background-repeat: no-repeat;
+		background-position: center center; 
+		background-size: cover;
+		min-height: 100%;
+		width: 75px;
+		float:left;
+		margin: 0;
+	}
+	
+	&:hover {
+		background-color: $card-hover;
+		
+		.movie-name {
+			color: $text-hover;
+		}
+	}
+
+	&-info {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		// padding: 15px 0 0 15px;
+		
+		.movie {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
+			padding:15px;
+			color: $text-colour;
+
+			&-rating {
+				margin:0;
+				font-size: 12px;
+			}
+
+			&-name {
+				line-height: 1.1;
+				font-size: 16px;
+				margin: 0;			
+			}
+			&-overview {
+				margin:0;
+				font-size: 12px;
+
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+			}
+		}
+		
+		.info-place {
+			margin: 0;
+			font-size: 24px;
+		}
+	}
+
+	a {
+		display: block;
+		width:100%;
+		height:100%;
+	}
+}

@@ -1,0 +1,11 @@
+$background-colour: #303030;
+$tv-colour: #35C5F4; // rgb(53, 197, 244)
+$movie-colour: #F0AD4E; //rgb(240, 173, 78)
+$people-colour: #01d277; // rgb(1, 210, 119)
+
+$card-colour: lighten($background-colour, 20%);
+$card-hover: lighten($background-colour, 5%);
+$text-colour: lighten($background-colour, 80%);
+
+$card-highlight-colour: mix($text-colour, $tv-colour);//invert(#303030);//#5171C3; complement($color);
+$text-hover: darken($card-highlight-colour, 25%);

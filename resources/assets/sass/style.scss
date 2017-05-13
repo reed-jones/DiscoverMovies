@@ -1,0 +1,29 @@
+/*** base styles ***/
+@import 'base/reset';
+@import 'base/colours-and-fonts';
+@import 'base/base';
+@import 'base/errors';
+
+/*** navbar ***/
+@import 'navbar/navbar';
+
+/*** card components ***/
+@import 'cards/cards';
+@import 'responsive';
+
+@import 'base/footer';
+
+
+
+.main-content {
+	height:100%;
+	width: 100%;
+	overflow-y: scroll;
+}
+
+
+.search-result-header {
+	width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}

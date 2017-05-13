@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+	margin :0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column nowrap;
+	height: 100vh;
+	line-height: 1.5;
+	font-family: 'Montserrat';
+	background-color: $background-colour;
+	overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}

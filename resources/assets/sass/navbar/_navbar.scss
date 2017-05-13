@@ -1,0 +1,50 @@
+.nav {
+	width: 100%;
+	margin: 10px 10px 10px 10px;
+    z-index:500;
+	position:relative;
+	display: flex;
+    flex-flow: column nowrap;
+
+    /* testing */
+    position:fixed;
+    height: 110px;
+    transition: 0.75s ease-out;
+    margin: 0;
+    padding: 10px;
+    top:0;
+    background: #303030;
+    &.gone {
+    	transform: translateY( -100% );
+    }
+
+	&-top {
+		display: flex;
+	    flex-flow: row nowrap;
+	    justify-content: space-between;
+	    padding: 0 15px;
+	    margin-bottom: 15px;
+
+
+
+	}
+	&-left, &-right {
+		display: flex;
+    	flex-flow: row nowrap;
+    	li {
+    		margin:0 5px;
+    		a {
+    			color: $text-colour;
+    		}
+    		a:hover {
+    			color: mix($text-colour, $tv-colour);
+    		}
+            p {
+                color: darken($card-highlight-colour, 30%);
+            }
+    	}
+	}
+
+
+	@import 'search';
+}

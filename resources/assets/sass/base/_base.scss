@@ -4,20 +4,20 @@
 }
 
 ul {
+	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	list-style-type: none;
 }
 
 body {
-	display: flex;
 	align-items: center;
-	justify-content: center;
-	flex-flow: row wrap;
-	height: 100vh;
-	line-height: 1.5;
-	font-family: 'Montserrat';
 	background-color: $background-colour;
+	display: flex;
+	flex-flow: row wrap;
+	font-family: 'Montserrat';
+	height: 100vh;
+	justify-content: center;
+	line-height: 1.5;
 	overflow: hidden;
 }
 
@@ -31,34 +31,36 @@ a {
 
 .main-content {
 	height:100%;
-	width: 100%;
 	overflow-y: scroll;
 	padding-top: 110px;
-
+	width: 100%;
+    align-items: flex-start;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: flex-start;
 }
 
 .site-header {
-    word-break: break-word;
+	font-family: 'Raleway', sans-serif;
     color: #fcfcfc;
     padding: 0 $spacing ($spacing * 1.4) $spacing;
-	font-family: 'Raleway', sans-serif;
+    word-break: break-word;
+
 	h1 {
-    	font-family: 'Righteous', cursive;
 		font-size:4rem;
-		line-height:3rem;
-		transition: 0.5s;
-		position: relative;
 		left: -3px;
+		line-height:3rem;
+		position: relative;
+		transition: 0.5s;
+    	font-family: 'Righteous', cursive;
 	}
+
 	h2 {
 		font-size: 1.3rem;
 	    line-height: 1.2rem;
 	    padding-top: 5px;
 	}
+	
 	p{
 		margin-top: 5px;
 	    font-size: 0.9rem;

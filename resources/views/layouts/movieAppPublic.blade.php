@@ -8,7 +8,6 @@
         <!-- General Search Engines -->
         <meta name="keywords" content="movies, new movies, top movies, hollywood movies, best movies, top 10, movie recommendations, movies to watch">
         <meta name="description" content="Having a hard time deciding what to watch? Browse the most popular films or search for specific titles. Create an account and save your favourites for later.">
-        <meta name="author" content="Reed Jones">
 
 
 	    <!-- Google Plus -->

@@ -1,11 +1,12 @@
 footer{
 	text-align:center;
 	width:100%;
+	
 	.footer-text {
 		color: rgba($text-colour, 0.3);
 		font-size: 0.7rem;
 		line-height: 2rem;
-		// padding:0.5rem;
+
 		a {
 			color: rgba($card-highlight-colour, 0.5);
 		}

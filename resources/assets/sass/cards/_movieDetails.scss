@@ -1,135 +1,156 @@
 // card {
 //
 &-details {
-	padding: 0 0 0 0;
-	transition: 0.5s;
-	// height: 100%;
-	width: 100%;
-	// overflow-y: scroll;
-	// padding-top:110px;
 	display: flex;
+	padding: 0;
+	transition: 0.5s;
+	width: 100%;
     flex-flow: row wrap;
     justify-content: center;
+    
 	&-top {
-		position: relative;
-		display: flex;
 		align-items: flex-end;
-		justify-content: flex-start;
-		flex-direction: row;
 		background: $card-highlight-colour;
-		// overflow: hidden;
-		background-repeat: no-repeat;
-		background-position: center center; 
-		background-size: cover;
 		color: $text-colour;
-		text-shadow: 1px 1px 2px #000;
-	    border-width: 4px;
-	    border-style: solid;
-	    border-image: linear-gradient(to bottom, $card-highlight-colour,  $background-colour) 1 100%;
-	    border-bottom: 0;
-		border-left:0;
-		border-right:0;
-		padding:15px;
+		display: flex;
+		flex-direction: row;
 		font-size: 16px;
-		max-width:768px;
-		width: 100%;;
 		height: 40vh;
+		justify-content: flex-start;
+		max-width:768px;
+		padding:15px;
+		position: relative;
+		text-shadow: 1px 1px 2px #000;
+		width: 100%;
+
+		background:{
+			repeat: no-repeat;
+			position: center center; 
+			size: cover;
+		}
+
+	    border:{
+	    	width: 4px;
+		    style: solid;
+		    image: linear-gradient(to bottom, $card-highlight-colour,  $background-colour) 1 100%;
+		    bottom: 0;
+			left:0;
+			right:0;
+		}
+
 		.favstar {
 			$degree: 35deg;
 			$star-color: yellow;
 
+			color: $star-color;
+			cursor: pointer;
+			display: block;
+			height: 0px;
 			margin: 25px 0;
 			position: relative;
-			cursor:pointer;
-			display: block;
-			color: $star-color;
+			transform: rotate($degree);
 			width: 0px;
 			z-index: 1;
-			height: 0px;
-			border-right:  20px solid transparent;
-			border-bottom: 15px  solid $star-color;
-			border-left:   20px solid transparent;
-			transform:    rotate($degree);
+
+			border:{
+				bottom: 15px  solid $star-color;
+				left:   20px solid transparent;
+				right:  20px solid transparent;
+			}
 			
-				&:before {
-				border-bottom: 20px solid $star-color;
-				border-left: 8px solid transparent;
-				border-right: 8px solid transparent;
-				cursor:pointer;
-				position: absolute;
-				height: 0;
-				width: 0;
-				top: -10px;
-				left: -15px;
-				display: block;
+			&:before {
 				content: '';
+				cursor:pointer;
+				display: block;
+				height: 0;
+				left: -15px;
+				position: absolute;
+				top: -10px;
 				transform: rotate(-$degree);
+				width: 0;
+
+				border:{
+					bottom: 20px solid $star-color;
+					left: 8px solid transparent;
+					right: 8px solid transparent;
+				}
 
 			}
-				&:after {
-				position: absolute;
-				display: block;
-				cursor:pointer;
+
+			&:after {
 				color: $star-color;
-				top: 1px;
-				left: -22px;
-				width: 0px;
-				height: 0px;
-				border-right: 20px solid transparent;
-				border-bottom: 15px solid $star-color;
-				border-left: 20px solid transparent;
-				transform: rotate(-$degree*2);
 				content: '';
+				cursor:pointer;
+				display: block;
+				height: 0px;
+				left: -22px;
+				position: absolute;
+				top: 1px;
+				transform: rotate(-$degree*2);
+				width: 0px;
+
+				border:{
+					bottom: 15px solid $star-color;
+					left: 20px solid transparent;
+					right: 20px solid transparent;
+				}
 			}
 		}
+
 		.filledstar {
 			$degree: 35deg;
 			$star-color: $background-colour;
 
-			margin: 25px 0;
-			position: relative;
+			color: $star-color;
 			cursor:pointer;
 			display: block;
-			color: $star-color;
-			top: -23px;
+			height: 0px;
 			left: -16px;
+			margin: 25px 0;
+			position: relative;
+			top: -23px;
 			width: 0px;
 			z-index: 2;
-			height: 0px;
-			border-right:  16px solid transparent;
-			border-bottom: 12px  solid $star-color;
-			border-left:   17px solid transparent;
-			// transform:    rotate($degree);
-			
-				&:before {
-					border-bottom: 17px solid $star-color;
-					border-left: 6px solid transparent;
-					border-right: 6px solid transparent;
-					cursor: pointer;
-					position: absolute;
-					height: 0;
-					width: 0;
-					top: -9px;
-					left: -13px;
-					display: block;
-					content: '';
-					transform: rotate(-$degree);
-				}
 
-				&:after {
-				position: absolute;
-				display: block;
-				cursor:pointer;
-				color: $star-color;
-				top: 2px;
-    			left: -19px;
-				width: 0px;
-				height: 0px;
-				border-right: 16px solid transparent;
-				border-bottom: 11px solid $star-color;
-				border-left: 17px solid transparent;
-				transform: rotate(-$degree*2);
+			border:{
+				bottom: 12px  solid $star-color;
+				left:   17px solid transparent;
+				right:  16px solid transparent;
+			}
+
+			&:before {
 				content: '';
+				cursor: pointer;
+				display: block;
+				height: 0;
+				left: -13px;
+				position: absolute;
+				top: -9px;
+				transform: rotate(-$degree);
+				width: 0;
+				border:{
+					bottom: 17px solid $star-color;
+					left: 6px solid transparent;
+					right: 6px solid transparent;
+				}
+			}
+
+			&:after {
+				color: $star-color;
+				content: '';
+				cursor:pointer;
+				display: block;
+				height: 0px;
+				position: absolute;
+				top: 2px;
+				transform: rotate(-$degree*2);
+				width: 0px;
+    			left: -19px;
+				border:{
+					bottom: 11px solid $star-color;
+					left: 17px solid transparent;
+					right: 16px solid transparent;
+				}
 			}
 		}
 
@@ -138,56 +159,52 @@
 		&:before {
 			background-image:linear-gradient(to bottom, rgba($background-colour,0) 0%, rgba($background-colour,0) 55%, rgba($background-colour,0.9) 80%, rgba($background-colour,1) 100%);
 			border-top: 4px solid $card-highlight-colour;
-			content: '';
-			position: absolute;
-			top: -4px;
-			right: 0;
 			bottom: 0;
+			content: '';
 			left: 0;
+			position: absolute;
+			right: 0;
+			top: -4px;
 			z-index: 1;
 		}
+
 		.full {
 			&-poster {
-				width:92px;
-				height:138px;
-				background-repeat: no-repeat;
 				background-position: center center; 
+				background-repeat: no-repeat;
 				background-size: cover;
+				height:138px;
 				margin-right:5px;
+				width:92px;
 				z-index: 2;
 			}
-			&-movie {
 
-			z-index: 2;
+			&-movie {
+				z-index: 2;
+
 				&-title {
 				  font-size:20px;
-				}
-				&-subtitle{
-
-				}
-				&-details {
-
-				}
-				&-rating {
-
 				}
 			}
 		}	
 	}
+
 	&-bottom {
 		color: $text-colour;
 		padding: 0.75rem;
 		width: 100%;
+
 		.movie {
 			&-plot{
+				margin: 0 auto;
 				max-width: 768px;
 				width: 100%;
-				margin: 0 auto;
 			}
+
 			&-overview {
-				margin: 0 0 35px 0;
-				font-size: 12px;
 				color: #fff;
+				font-size: 12px;
+				margin: 0 0 35px 0;
 				padding: 1rem 2rem 1rem 0rem;
 			}
 		}

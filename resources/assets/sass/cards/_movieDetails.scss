@@ -7,6 +7,9 @@
 	width: 100%;
 	// overflow-y: scroll;
 	padding-top:110px;
+	display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 	&-top {
 		position: relative;
 		display: flex;
@@ -14,14 +17,22 @@
 		justify-content: flex-start;
 		flex-direction: row;
 		background: $card-highlight-colour;
-		overflow: hidden;
+		// overflow: hidden;
 		background-repeat: no-repeat;
 		background-position: center center; 
 		background-size: cover;
 		color: $text-colour;
 		text-shadow: 1px 1px 2px #000;
+	    border-width: 4px;
+	    border-style: solid;
+	    border-image: linear-gradient(to bottom, $card-highlight-colour,  $background-colour) 1 100%;
+	    border-bottom: 0;
+		border-left:0;
+		border-right:0;
 		padding:15px;
 		font-size: 16px;
+		max-width:768px;
+		width: 100%;;
 		height: 40vh;
 		.favstar {
 			$degree: 35deg;
@@ -126,9 +137,10 @@
 
 		&:before {
 			background-image:linear-gradient(to bottom, rgba($background-colour,0) 0%, rgba($background-colour,0) 55%, rgba($background-colour,0.9) 80%, rgba($background-colour,1) 100%);
+			border-top: 4px solid $card-highlight-colour;
 			content: '';
 			position: absolute;
-			top: 0;
+			top: -4px;
 			right: 0;
 			bottom: 0;
 			left: 0;
@@ -165,11 +177,19 @@
 	&-bottom {
 		color: $text-colour;
 		padding: 0.75rem;
-		.movie-overview {
-			margin: 0 0 35px 0;
-			font-size: 12px;
-			color: #fff;
-			padding: 1rem 2rem 1rem 2rem;
+		width: 100%;
+		.movie {
+			&-plot{
+				max-width: 768px;
+				width: 100%;
+				margin: 0 auto;
+			}
+			&-overview {
+				margin: 0 0 35px 0;
+				font-size: 12px;
+				color: #fff;
+				padding: 1rem 2rem 1rem 0rem;
+			}
 		}
 	}
 }

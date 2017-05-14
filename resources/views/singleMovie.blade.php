@@ -25,12 +25,15 @@
 	                    
 			</div>
 			<div class="card-details-bottom">
-				<p class="movie-overview">{{ $movie->overview }}</p>
+				<div class="movie-plot">
+					<h3>Plot Summary</h3>
+					<p class="movie-overview">{{ $movie->overview }}</p>
+				</div>
 				<h3>Cast</h3>
 				<div class="card-scroll">
                     <ul class="card-sm">
-					@for($i = 0; $i < 9; $i++)
-					@if (!empty($cast[$i]))
+					@for($i = 0; $i < 20; $i++)
+					@if (!empty($cast[$i]) && !empty($cast[$i]->name) && !empty($cast[$i]->profile_path))
                         <li>
 							<a href="/person/{{ $cast[$i]->id }}">
 								<div class="card person">

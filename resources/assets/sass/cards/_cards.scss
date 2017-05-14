@@ -9,29 +9,20 @@
 	&-list {
 		padding: 0 0.75rem 0.75rem 0.75rem;
 		transition: 0.5s;
-		// height: 100%;
 		width: 100%;
-		// overflow-y: scroll;
 		color: $text-colour;
 	    display: flex;	
 	    flex-flow: row wrap;
 	    justify-content: space-between;
 
-
-		/* testing */
 		padding-top:110px;
 		transition: 0.75s ease-out;
-	}
 
-
-	&-scroll .card-sm {
-		display: flex;
-		flex-flow: row nowrap;
-		justify-content: flex-start;
-		overflow-x: scroll;
-		transition: 2s ease;
-    	margin: 5px 0 35px 0;
-    	overflow: -moz-scrollbars-none;
+		.search-result-header {
+			width: 100%;
+		    text-align: center;
+		    margin-top: 2rem;
+		}
 	}
 
 }

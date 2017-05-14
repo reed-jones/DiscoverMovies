@@ -28,3 +28,9 @@ a {
 ::-webkit-scrollbar {
 	display: none;
 }
+
+.main-content {
+	height:100%;
+	width: 100%;
+	overflow-y: scroll;
+}

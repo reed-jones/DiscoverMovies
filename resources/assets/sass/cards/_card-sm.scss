@@ -1,10 +1,19 @@
 //card {
-//
+&-scroll .card-sm {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  transition: 2s ease;
+    margin: 5px 0 35px 0;
+}
+  
 &-sm {
   display: flex;
   flex-flow: row wrap;
   align-items:center;
   justify-content: space-around;
+
   &.left_align {
     justify-content: flex-start;
   }
@@ -24,7 +33,7 @@
     box-shadow: 2px 2px 5px #000;
 
     &.bio{
-      width: 210px; // double regular + padding
+      width: 210px; // ~ double regular + padding
       align-self: stretch;
       .card-image{
         height:100%;

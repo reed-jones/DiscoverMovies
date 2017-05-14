@@ -86,15 +86,9 @@
 
 
 @section('scripts')
-
-    {{-- @include('scripts.jQuery') --}}
-
-
-    @include('scripts.horizontalScroll')
     <script>
-
-@if (Auth::check())
-    $('.favstar').click(function(){
+	@if (Auth::check())
+	$('.favstar').click(function(){
 		$.ajax({
 			headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 			method: "POST",
@@ -110,11 +104,8 @@
 				$('.filledstar').css('display', 'none');
 			});
 	});
-
-@endif
-    </script>
-
-    <script type="text/javascript">
+	@endif
+	
     // subscribe to horizontal scroll on cards
     $(function() {
        $(".card-scroll .card-sm").mousewheel(function(event, delta) {

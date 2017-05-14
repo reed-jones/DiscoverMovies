@@ -42,12 +42,26 @@ a {
 }
 
 .site-header {
-	word-break: break-word;
-	color: $text-colour;
-	font-family: 'Righteous', cursive;
+    word-break: break-word;
+    color: #fcfcfc;
+    padding: 0 15px 20px 15px;
+	font-family: 'Raleway', sans-serif;
 	h1 {
+    	font-family: 'Righteous', cursive;
 		font-size:4rem;
 		line-height:3rem;
 		transition: 0.5s;
+		position: relative;
+		left: -3px;
+	}
+	h2 {
+		font-size: 1.3rem;
+	    line-height: 1.2rem;
+	    padding-top: 5px;
+	}
+	p{
+		margin-top: 5px;
+	    font-size: 0.9rem;
+	    line-height: 0.85rem;
 	}
 }

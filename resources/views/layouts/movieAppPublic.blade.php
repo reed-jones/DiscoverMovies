@@ -7,8 +7,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ Voyager::setting('title') }}</title>
-        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> --}}
+        {{-- <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet"> --}}
+<link href="https://fonts.googleapis.com/css?family=Raleway:600|Righteous" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
       
       	{!! Voyager::setting('google_analytics') !!}

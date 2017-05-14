@@ -53,7 +53,7 @@
 		}
 		else if( wScrollDiff < 0 ) // scrolled down
 		{
-			if( wScrollCurrent + wHeight >= $('.main-content')[0].scrollHeight-100 && $element.hasClass( elClassHidden ) ) // scrolled to the very bottom (minus 200px); element slides in
+			if( wScrollCurrent + wHeight >= $('.main-content')[0].scrollHeight-110 && $element.hasClass( elClassHidden ) ) // scrolled to the very bottom (minus 100px for padding); element slides in
 				{
 					// choosing infinity scroll instead
 					//$element.removeClass( elClassHidden );

@@ -7,7 +7,7 @@
 <div class="site-header">
 	<h1>Discover<wbr>Movies</h1>
 	<h2>Having a hard time deciding what to watch?</h2>
-	<p>We can help. Browse the most popular films or search for specific titles. Create an account and save your favourites for later.
+	<p>We can help. Browse the most popular films or search for specific titles. Create an account and save your favourites for later.</p>
 </div>
 
 <ul class="card-list">
@@ -62,14 +62,14 @@ var loadingNew = false;
             var scrollTop = $('.main-content').scrollTop();
             var windowHeight = $('.main-content').height();
             var height = $(document).height() - windowHeight;
-            // var scrollPercentage = (scrollTop / height);
             var theTop = $('.main-content')[0].scrollHeight;
             var scrollPercentage = ((windowHeight+scrollTop+110)/theTop).toFixed(2);
-          //  console.log(scrollPercentage);
+            var scrollRemaining = (theTop- (windowHeight+scrollTop));
+            console.log(scrollRemaining);
 
 
             // if the scroll is more than 90% from the top, load more content.
-            if(scrollPercentage > 0.95 && !loadingNew) {
+            if(scrollRemaining <= 400 && !loadingNew) {
                 this.doSomething();
             }
         }

@@ -62,12 +62,15 @@ class tmdbController extends Controller
     }
 
     function search(Request $req){
-    	$request = $req->input('search');
+
+    	$request = $req->input('q');
     	$client = new Client(['base_uri' => 'https://api.themoviedb.org/3/']);
     	$apikey = \App\ApiKey::first()->api_key;
 
+        //dd($request);
+
     	if(empty($request)){
-    		$request = "John Wick";
+    		$request = "unable-to-find-results";
     	}
 
     	$response = $client->request('GET', "search/multi?query=$request&api_key=$apikey");

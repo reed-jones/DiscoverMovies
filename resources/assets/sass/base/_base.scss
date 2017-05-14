@@ -33,4 +33,21 @@ a {
 	height:100%;
 	width: 100%;
 	overflow-y: scroll;
+	padding-top: 110px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.site-header {
+	word-break: break-word;
+	color: $text-colour;
+	font-family: 'Righteous', cursive;
+	h1 {
+		font-size:4rem;
+		line-height:3rem;
+		transition: 0.5s;
+	}
 }

@@ -3,6 +3,11 @@
 
 {{-- Card List --}}
 @section('content')
+	
+<div class="site-header">
+	<h1>Discover<wbr>Movies</h1>
+</div>
+
 <ul class="card-list">
 	@foreach($popularMovies as $movie)
 		<li class="card-lg">

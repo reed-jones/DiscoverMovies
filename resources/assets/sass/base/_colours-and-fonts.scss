@@ -2,6 +2,7 @@ $background-colour: #303030;
 $tv-colour: #35C5F4; // rgb(53, 197, 244)
 $movie-colour: #F0AD4E; //rgb(240, 173, 78)
 $people-colour: #01d277; // rgb(1, 210, 119)
+$spacing: 0.75rem;
 
 $card-colour: lighten($background-colour, 20%);
 $card-hover: lighten($background-colour, 5%);

@@ -46,7 +46,7 @@
 					<div class="search-container">
 						<div class="search-container-inner">
 						  	<label id="search" for="input_search">
-								<input id="input_search" name="search" type="text" autocomplete="off" />
+								<input id="input_search" name="q" type="text" autocomplete="off" />
 							</label>
 						</div>
 					</div>

@@ -104,7 +104,15 @@
 
 			}
 		}).done(function(msg){
-				$('.filledstar').css('display', 'none');
+				console.log(visibleStar);
+				var visibleStar = $('.filledstar').css('display');
+				if (visibleStar == "block") {
+					$('.filledstar').css('display', 'none');
+				} else if (visibleStar == "none") {
+					$('.filledstar').css('display', 'block');
+				} else {
+					$('.favstar').append($("<div>", {"class": "filledstar"}));
+				}
 			});
 	});
 	@endif
@@ -119,13 +127,13 @@
 
     // auto scroll cast column to highlight animations
     $(document).ready(function(){
-        $(".card-scroll .card-sm")[0].scrollLeft = $(".card-scroll .card-sm")[0].scrollWidth;
+    	$(".card-scroll .card-sm")[0].scrollLeft = $(".card-scroll .card-sm")[0].scrollWidth/3;
 
-       var one = setInterval(function() {
+       	var one = setInterval(function() {
             if ($(".card-scroll .card-sm")[0].scrollLeft < 1){
                 clearInterval(one);
             }
-            $(".card-scroll .card-sm")[0].scrollLeft -= 2;
+            $(".card-scroll .card-sm")[0].scrollLeft -= 3;
         }, 10);
     });
     </script>

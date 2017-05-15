@@ -20,9 +20,9 @@ class FavouritesController extends Controller
     	
     	// check if alread exists
     	$exists = Favourite::where('user_id', $req->user_id)
-    			->where('movie_id', $req->movie_id)->count();
+    			->where('movie_id', $req->movie_id);
 
-    	if(!$exists){
+    	if($exists->count() == 0){
 	    	$fav = new Favourite();
 
 	    	$fav->user_id = $req->user_id;
@@ -32,7 +32,7 @@ class FavouritesController extends Controller
 
 	    	$fav->save();
 	    } else {
-            // remove!
+            $exists->delete();
         }
     }
 }

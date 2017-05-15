@@ -46,12 +46,18 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-
+    .site-header {
+        padding-bottom: 55px
+    }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
     .card-lg {
     	width: 30%;
+    }
+
+    .site-header {
+        padding-bottom: 110px
     }
 }

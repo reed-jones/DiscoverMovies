@@ -95,7 +95,7 @@
 		$.ajax({
 			headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 			method: "POST",
-			url: '/savefav',
+			url: '/editfav',
 			data:{
 				user_id: "{{ Auth::user()->id }}",
 				movie_id: "{{ $orig->id }}",
@@ -104,7 +104,7 @@
 
 			}
 		}).done(function(msg){
-				console.log(visibleStar);
+				console.log(msg);
 				var visibleStar = $('.filledstar').css('display');
 				if (visibleStar == "block") {
 					$('.filledstar').css('display', 'none');

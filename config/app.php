@@ -39,8 +39,8 @@ return [
     */
 
     // debugging mode:
-    //'debug' => env('APP_DEBUG', false),
-    'debug' => false,
+    'debug' => env('APP_DEBUG', false),
+    //'debug' => false,
 
     /*
     |--------------------------------------------------------------------------

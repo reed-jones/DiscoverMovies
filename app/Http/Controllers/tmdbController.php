@@ -4,28 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+Use \App\ApiKey;
 
 class tmdbController extends Controller
 {
     function popularMovies(){
     	$client = new Client(['base_uri' => 'https://api.themoviedb.org/3/']);
-        if (!\App\ApiKey::all()->isEmpty()){
-        	$apikey = \App\ApiKey::first()->api_key;
+        if (!ApiKey::all()->isEmpty()){
+        	$apikey = ApiKey::first()->api_key;
             $response = $client->request('GET', "movie/popular?sort_by=popularity.desc&api_key=$apikey");
         }
 
 
-        if(empty($apikey))
+        if(empty($apikey)){
             return view('errors.404');
+        }
 
-		return view('popular')->with('popularMovies', json_decode($response->getBody())->results)->with('apikey', $apikey);
+        $popularMovies = json_decode($response->getBody())->results;
+
+		return view('popular', compact(['popularMovies', 'apikey']));
     }
 
     function filmography($personid){
     	$client = new Client(['base_uri' => 'https://api.themoviedb.org/3/']);
 
-
-    	$apikey = \App\ApiKey::first()->api_key;
+    	$apikey = ApiKey::first()->api_key;
     	//dd($apikey);
 		$results = $client->request('GET', "person/$personid/combined_credits?&api_key=$apikey");
 		$filmography = json_decode($results->getBody())->cast;
@@ -33,12 +36,12 @@ class tmdbController extends Controller
 		$results = $client->request('GET', "person/$personid?&api_key=$apikey");
 		$person = json_decode($results->getBody());
 
-		return view('filmography')->with('filmography', $filmography)->with('person', $person)->with('apikey', $apikey);
+		return view('filmography', compact(['filmography', 'person', 'apikiey']));
     }
 
     function singleMovie($movieid){
     	$client = new Client(['base_uri' => 'https://api.themoviedb.org/3/']);
-    	$apikey = \App\ApiKey::first()->api_key;
+    	$apikey = ApiKey::first()->api_key;
 
     	$response = $client->request('GET', "movie/$movieid?api_key=$apikey");
     	$movie = json_decode($response->getBody());
@@ -56,31 +59,24 @@ class tmdbController extends Controller
         $favBool = \App\Favourite::where('user_id', \Auth::user()->id)
                     ->where('movie_id', $movie->id)->first();
         }
+        // $data = compact(['movie','cast','similar','recommendations', 'favBool']);
+        // return view('singleMovie', compact('data'));
 
         return view('singleMovie', compact(['movie','cast','similar','recommendations', 'favBool']));
-    	// return view('singleMovie')->with('movie', $movie)->with('cast', $cast)->with('similar', $similar)->with('recommendations', $recommendations);
     }
 
     function search(Request $req){
-
+        $client = new Client(['base_uri' => 'https://api.themoviedb.org/3/']);
+        $apikey = ApiKey::first()->api_key;
     	$request = $req->input('q');
-    	$client = new Client(['base_uri' => 'https://api.themoviedb.org/3/']);
-    	$apikey = \App\ApiKey::first()->api_key;
-
-        //dd($request);
 
     	if(empty($request)){
-    		$request = "unable-to-find-results";
-    	}
-
-    	$response = $client->request('GET', "search/multi?query=$request&api_key=$apikey");
-        // dd($response->getBody()->getContents());
-    	$results = json_decode($response->getBody())->results;
-
-        //$app = app();
-        //$movieArray = $app->make('myMovieModel');
-    	// return view('search');
-    	return view('search')->with('results', $results);
+    		$results = array();
+    	} else {
+        	$response = $client->request('GET', "search/multi?query=$request&api_key=$apikey");
+        	$results = json_decode($response->getBody())->results;
+        }
+        
+    	return view('search', compact('results'));
     }
-
 }

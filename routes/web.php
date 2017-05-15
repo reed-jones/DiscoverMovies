@@ -28,7 +28,7 @@ Route::get('/dashboard', function(){
 // Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 // 
 Route::get('/favs', 'FavouritesController@getAll')->name('favs');
-Route::post('/savefav', 'FavouritesController@saveFavourite')->name('saveFav');
+Route::post('/editfav', 'FavouritesController@editFavourite')->name('editFav');
 
 
 

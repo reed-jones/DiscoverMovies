@@ -9,8 +9,6 @@ $movieString = "";
 $tvString = "";
 $personString = "";
 foreach($results as $result){
-	
-
 	if ($result->media_type === "movie" ){
 		if(empty($result->poster_path) || empty($result->title)) {
 			continue;

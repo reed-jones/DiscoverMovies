@@ -44,75 +44,59 @@
 <script>
 var pageNumber = 1;
 var loadingNew = false;
+var windowHeight = $('.main-content').height();
+var scrollIntervalID = setInterval(infinityScroll, 100);
+
 /**
- * gist: https://gist.github.com/beije/d669bba6dc3740c2dc81
- * Modified by Reed Jones
+ * Poll the scroll distance to determine if
+ * new page of results should be loaded
  */
-(function($, window, undefined) {
-    var InfiniteScroll = function() {
+function infinityScroll(){
+	var scrollTop = $('.main-content').scrollTop(),
+        theTop = $('.main-content')[0].scrollHeight,
+        scrollRemaining = (theTop - (windowHeight+scrollTop));
 
-        this.initialize = function() {
-            this.setupEvents();
-        };
-        
-        this.setupEvents = function() {
-            $('.main-content').on(
-                'scroll',
-                this.handleScroll.bind(this)
-            );
-        };
- 
-        this.handleScroll = function() {
-            var scrollTop = $('.main-content').scrollTop(),
-	            windowHeight = $('.main-content').height(),
-	            theTop = $('.main-content')[0].scrollHeight,
-	            scrollRemaining = (theTop - (windowHeight+scrollTop));
-
-            // if the scroll is more than 90% from the top, load more content.
-            if(scrollRemaining <= 400 && !loadingNew) {
-                loadMore();
-            }
-        }
-
-        this.initialize();
+    // if the scroll is more than 90% from the top, load more content.
+    if(scrollRemaining <= 400 && !loadingNew) {
+        loadMore();
     }
- 
-    $(document).ready(
-        function() {
-            // Initialize scroll
-            new InfiniteScroll();
-        }
-    );
-})(jQuery, window);
-
-// TODO catch if ajax fails
-function loadMore(){
-		$.ajax({
-  method: "GET",
-  url: "https://api.themoviedb.org/3/movie/popular?sort_by=popularity.desc&page="+ (++pageNumber)+"&api_key=" + "{{ $apikey }}"
-})
-  .done(function( results ) {
-    display(results.results);
-  })
 }
 
+/**
+ * AJAX request to return next page of results
+ */
+function loadMore(){
+	$.ajax({
+  		method: "GET",
+  		url: "https://api.themoviedb.org/3/movie/popular?sort_by=popularity.desc&page="+ (++pageNumber)+"&api_key=" + "{{ $apikey }}"
+	}).done(function( results ) {
+		display(results.results);
+	}).fail(function(){
+		//display error that next page could not be loaded
+		//perhaps inform the user they have reached the end of the internet.
+	})
+}
+
+/**
+ * Construct all the newly aquired cards.
+ */
 function display(results) {
 	// stops loading of million pages when botom is reached
 	loadingNew = true;
 	console.log("loading page " + pageNumber);
 
 	// just look at this mess
+	// no comment...
 	$.each(results, function(index, movie) {
 
 		// create the movie card.
 		// TODO check if values are null first
 		var $li = $("<li>", {"class": "card-lg"})
-					.append($("<a>", { "href": "/movie/"+movie.id })
-					.append($("<div>", {
-						"class": "card-lg-poster",
-						"style": "background-image: url(https://image.tmdb.org/t/p/w154"+ movie.poster_path +");" }))
-					.append($("<div>", {"class": "card-lg-info"})
-						.append($("<div>", {"class": "movie"})
+			.append($("<a>", { "href": "/movie/"+movie.id })
+				.append($("<div>", { "class": "card-lg-poster",
+					"style": "background-image: url(https://image.tmdb.org/t/p/w154"+ movie.poster_path +");" }))
+				.append($("<div>", {"class": "card-lg-info"})
+					.append($("<div>", {"class": "movie"})
 						.append($("<h3>", {"class": "movie-name"}).html(movie.title))
 						.append($("<p>", {"class": "movie-rating"}).html("Rating: " +movie.vote_average + " | " + movie.release_date))
 						.append($("<p>", {"class": "movie-overview"}).html(movie.overview)))));

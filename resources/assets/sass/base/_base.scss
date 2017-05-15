@@ -1,6 +1,7 @@
 * {
 	box-sizing: border-box;
 	margin :0;
+	-ms-overflow-style: none;
 }
 
 ul {
@@ -28,6 +29,8 @@ a {
 ::-webkit-scrollbar {
 	display: none;
 }
+// internet explorer fix
+wbr:after { content: "\00200B"; }
 
 .main-content {
 	height:100%;

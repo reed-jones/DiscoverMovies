@@ -44,9 +44,13 @@
 <script>
 var pageNumber = 1;
 var loadingNew = false;
-
+/**
+ * gist: https://gist.github.com/beije/d669bba6dc3740c2dc81
+ * Modified by Reed Jones
+ */
 (function($, window, undefined) {
     var InfiniteScroll = function() {
+
         this.initialize = function() {
             this.setupEvents();
         };
@@ -59,26 +63,17 @@ var loadingNew = false;
         };
  
         this.handleScroll = function() {
-            var scrollTop = $('.main-content').scrollTop();
-            var windowHeight = $('.main-content').height();
-            var height = $(document).height() - windowHeight;
-            var theTop = $('.main-content')[0].scrollHeight;
-            var scrollPercentage = ((windowHeight+scrollTop+110)/theTop).toFixed(2);
-            var scrollRemaining = (theTop- (windowHeight+scrollTop));
-            console.log(scrollRemaining);
-
+            var scrollTop = $('.main-content').scrollTop(),
+	            windowHeight = $('.main-content').height(),
+	            theTop = $('.main-content')[0].scrollHeight,
+	            scrollRemaining = (theTop - (windowHeight+scrollTop));
 
             // if the scroll is more than 90% from the top, load more content.
             if(scrollRemaining <= 400 && !loadingNew) {
-                this.doSomething();
+                loadMore();
             }
         }
- 
-        this.doSomething = function() {
-        	loadingNew = true;
-            loadMore();
-        }
- 
+
         this.initialize();
     }
  
@@ -90,7 +85,7 @@ var loadingNew = false;
     );
 })(jQuery, window);
 
-
+// TODO catch if ajax fails
 function loadMore(){
 		$.ajax({
   method: "GET",
@@ -102,7 +97,15 @@ function loadMore(){
 }
 
 function display(results) {
+	// stops loading of million pages when botom is reached
+	loadingNew = true;
+	console.log("loading page " + pageNumber);
+
+	// just look at this mess
 	$.each(results, function(index, movie) {
+
+		// create the movie card.
+		// TODO check if values are null first
 		var $li = $("<li>", {"class": "card-lg"})
 					.append($("<a>", { "href": "/movie/"+movie.id })
 					.append($("<div>", {
@@ -113,8 +116,12 @@ function display(results) {
 						.append($("<h3>", {"class": "movie-name"}).html(movie.title))
 						.append($("<p>", {"class": "movie-rating"}).html("Rating: " +movie.vote_average + " | " + movie.release_date))
 						.append($("<p>", {"class": "movie-overview"}).html(movie.overview)))));
+
+		// add it before the "final" card.
 		$('#load-more').before($li);
 	})
+
+	// thats all folks
     loadingNew = false;
 }
 </script>

@@ -16,7 +16,7 @@ class FavouritesController extends Controller
     }
 
     function saveFavourite(Request $req){
-    	// should look into firstOrCreate firstOrNew and updateOdCreate
+    	// should look into firstOrCreate firstOrNew and updateOrCreate
     	
     	// check if alread exists
     	$exists = Favourite::where('user_id', $req->user_id)
@@ -31,7 +31,8 @@ class FavouritesController extends Controller
 	    	$fav->poster_path = $req->poster_path;
 
 	    	$fav->save();
-	    }
-
+	    } else {
+            // remove!
+        }
     }
 }

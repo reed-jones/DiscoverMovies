@@ -1,6 +1,6 @@
 {{-- Navbar, search etc --}}
 @extends('layouts.movieAppPublic')
-@php 
+@php
 	$orig = $movie;
 @endphp
 
@@ -17,12 +17,12 @@
 				</div>
 				@if(Auth::check())
 					<div class="favstar">
-						@if(!isset($favBool))
+						@if(isset($favBool) && !$favBool)
 							<div class="filledstar"></div>
 						@endif
 					</div>
 				@endif
-	                    
+
 			</div>
 			<div class="card-details-bottom">
 				<div class="movie-plot">
@@ -91,7 +91,7 @@
 @section('scripts')
     <script>
 	@if (Auth::check())
-	$('.favstar').click(function(){
+	$('.favstar').click(function() {
 		$.ajax({
 			headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 			method: "POST",
@@ -116,7 +116,7 @@
 			});
 	});
 	@endif
-	
+
     // subscribe to horizontal scroll on cards
     $(function() {
        $(".card-scroll .card-sm").mousewheel(function(event, delta) {
@@ -137,5 +137,5 @@
         }, 10);
     });
     </script>
-    
+
 @endsection

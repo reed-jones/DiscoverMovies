@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\ApiKey;
 use Illuminate\Http\Request;
 
 class ApiKeysController extends Controller
 {
-    //
     public function index(){
-    	$apis = \App\ApiKey::all();
-        
-        // return view('welcome', compact('apis'));
-        return view('welcome')->with('apis', $apis);
+        return view('welcome')
+            ->with('apis', ApiKey::all());
     }
 }

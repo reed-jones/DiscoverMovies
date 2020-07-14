@@ -7,13 +7,12 @@
 
         {!! Voyager::setting('search_meta_tags') !!}
 
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ Voyager::setting('title') }}</title>
-        {{-- <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet"> --}}
-		<link href="https://fonts.googleapis.com/css?family=Raleway:600|Righteous" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@600&family=Righteous&display=swap" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-      
+
       	{!! Voyager::setting('google_analytics') !!}
     </head>
     <body>
@@ -34,7 +33,6 @@
 	            <ul class="nav-right">
 	                <li><p>{{ Auth::user()->name }}</p></li>
 	                <li><a href="{{ route('favs') }}">Favourites</a></li>
-	                {{-- <li><a href="/dashboard">Account</a></li> --}}
 	                <li><a href="{{ route('logout') }}"
 	                        onclick="event.preventDefault();
 	                                 document.getElementById('logout-form').submit();">
@@ -64,7 +62,10 @@
 
 			<footer>
 				<p class="footer-text">
-					© 2017 by <a href="//www.reedjones.com">Reed Jones</a>. Data aquired from the wonderful <a href="//www.themoviedb.org/">TMDB</a> API.
+					© {{ \Carbon\Carbon::now()->year }} by <a href="//www.reedjones.com">Reed Jones</a>. Data aquired from the wonderful <a href="//www.themoviedb.org/">TMDB</a> API.
+				</p>
+				<p class="footer-text">
+					Find on <a href="//github.com/reed-jones/DiscoverMovies">GitHub</a>
 				</p>
 			</footer>
 		</div>

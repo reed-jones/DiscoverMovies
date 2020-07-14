@@ -22,8 +22,10 @@ Route::get('/dashboard', function(){
 	return redirect('/');
 })->name('dashboard');
 // Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-// 
-Route::get('/favs', 'FavouritesController@getAll')->name('favs');
+//
+Route::middleware(['web', 'auth'])->group(function () {
+    Route::get('/favs', 'FavouritesController@getAll')->name('favs');
+});
 Route::post('/savefav', 'FavouritesController@saveFavourite')->name('saveFav');
 
 /* voyager admin panel */

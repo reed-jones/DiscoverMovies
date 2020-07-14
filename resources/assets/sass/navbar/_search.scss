@@ -10,7 +10,7 @@
 		border: none;
 		box-sizing: border-box;
 		color: $text-colour;
-		font-family: Helvetica;
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 		font-size: 18px;
 		outline-width: 0px;
 		text-align: left;
@@ -43,11 +43,11 @@
 			transition: all 200ms ease;
 			width: 3px;
 		}
-		
+
 		&.activeSearch, &:hover {
 			margin-right: 10px;
 			width: 100%;
-			
+
 			&:after{
 				height: 0px;
 			}

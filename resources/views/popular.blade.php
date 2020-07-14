@@ -3,7 +3,7 @@
 
 {{-- Card List --}}
 @section('content')
-	
+
 <div class="site-header">
 	<h1>Discover<wbr>Movies</h1>
 	<h2>Having a hard time deciding what to watch?</h2>
@@ -65,13 +65,13 @@ function infinityScroll(){
 /**
  * AJAX request to return next page of results
  */
-function loadMore(){
+function loadMore() {
 	$.ajax({
   		method: "GET",
   		url: "https://api.themoviedb.org/3/movie/popular?sort_by=popularity.desc&page="+ (++pageNumber)+"&api_key=" + "{{ $apikey }}"
-	}).done(function( results ) {
+	}).done(function(results) {
 		display(results.results);
-	}).fail(function(){
+	}).fail(function() {
 		//display error that next page could not be loaded
 		//perhaps inform the user they have reached the end of the internet.
 	})
